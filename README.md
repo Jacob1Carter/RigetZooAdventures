@@ -1,7 +1,7 @@
 ![RZA title image](static/assets/site-images/Title2.png)
 
-#Riget Zoo Adventures
-####-prototype web application
+# Riget Zoo Adventures
+#### -prototype web application
 <br>
 Made by Jacob Carter
 
