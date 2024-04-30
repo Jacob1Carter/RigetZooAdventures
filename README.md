@@ -6,7 +6,8 @@
 Made by Jacob Carter<br>
 LL-000014202
 <br><br>
-Github: [Jacob1Carter](https://github.com/Jacob1Carter)<br>
+Github: [Jacob1Carter](https://github.com/Jacob1Carter)
+<br>
 Repository: [RigetZooAdventures](https://github.com/Jacob1Carter/RigetZooAdventures)
 <br><br>
 Designed for:
