@@ -5,7 +5,6 @@
 <br>
 
 Made by Jacob Carter
-LL-000014202
 <br><br>
 
 Github: [Jacob1Carter](https://github.com/Jacob1Carter)
