@@ -6,7 +6,7 @@
 
 Made by Jacob Carter
 LL-000014202
-
+<br><br>
 
 
 
@@ -15,7 +15,7 @@ Github: [Jacob1Carter](https://github.com/Jacob1Carter)
 Repository: [RigetZooAdventures](https://github.com/Jacob1Carter/RigetZooAdventures)
 
 
-
+<br><br>
 Designed for:
 
     Python                          3.9
