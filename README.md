@@ -19,7 +19,7 @@ Designed for:
 
 IDE:
 
-    Pyacharm Community Edition      _
+    Pyacharm Community Edition      2021.2.3
 
 Libraries:
 
