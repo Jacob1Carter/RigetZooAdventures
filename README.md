@@ -7,6 +7,9 @@ Made by Jacob Carter
 
 LL-000014202
 
+    Github: [Jacob1Carter](https://github.com/Jacob1Carter)
+    Repository: [RigetZooAdventures](https://github.com/Jacob1Carter/RigetZooAdventures)
+
 Designed for:
 
     Python                          3.9
