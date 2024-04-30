@@ -3,13 +3,14 @@
 # Riget Zoo Adventures
 #### -prototype web application
 <br>
-Made by Jacob Carter<br>
+
+Made by Jacob Carter
 LL-000014202
 
 
 
-Github: [Jacob1Carter](https://github.com/Jacob1Carter)
 
+Github: [Jacob1Carter](https://github.com/Jacob1Carter)
 
 Repository: [RigetZooAdventures](https://github.com/Jacob1Carter/RigetZooAdventures)
 
