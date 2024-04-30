@@ -1,0 +1,37 @@
+<!--    templates/admin/manage-images.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/admin-header.html" %}
+
+    <body>
+
+        {% include "base/user-indicator.html" %}
+
+        <div class="container main-content">
+
+            <form action="/admin/manage-images" enctype="multipart/form-data" method="post">
+                <label for="new-image">Upload new image:</label>
+                <input type="file" id="new-image" name="new-image" accept="image/png, image/jpeg, image/jpg">
+                <br>
+                <samll>Please give the image a suitable name</samll>
+
+                <br><br><br>
+
+                <p>Delete images:</p>
+                {% for image in image_list %}
+                    <input type="checkbox" id="{{ image }}" name="{{ image }}" value="{{ image }}">
+                    <label for="{{ image }}">{{ image }}</label>
+                    <img class="img-preview" src="../static/assets/variable-images/{{ image }}">
+                    <br>
+                {% endfor %}
+
+                <br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </body>
+
+</html>
+<!--    /templates/admin/manage-images.html    -->

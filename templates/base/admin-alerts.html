@@ -1,0 +1,10 @@
+<!--    templates/base/admin-alerts.html    -->
+
+    <div class="alerts-container">
+        {% for alert in alerts %}
+            <div class="alert alert-{{ alert['type'] }}" role="alert">
+                {{ alert["text"] }}
+            </div>
+        {% endfor %}
+    </div>
+<!--    /templates/base/admin-alerts.html    -->

@@ -1,0 +1,67 @@
+<!--    templates/admin/edit-page.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/admin-header.html" %}
+
+    <body>
+
+        {% include "base/user-indicator.html" %}
+
+        <div class="container main-content">
+            <h1>Edit {{ name }} page</h1>
+            <form class="page-form" action="/admin/edit-page/{{ name }}" method="POST">
+                <label for="name">Page name:</label>
+                <input type="text" id="name" name="name" value="{{ page_data['name'] }}">
+
+                <br><br>
+
+                <label for="heading">Page heading:</label>
+                <input type="text" id="heading" name="heading" value="{{ page_data['heading'] }}">
+
+                <br>
+
+                {% if name == "location" %}
+                    <br>
+                    <label for="name">API key:</label>
+                    <input type="text" id="api_key" name="api_key" value="{{ page_data['map']['key'] }}">
+                    <br>
+                    <label for="lat">Latitude:</label>
+                    <input type="text" id="lat" name="lat" value="{{ page_data['map']['lat'] }}">
+                    <br>
+                    <label for="lng">Longitude:</label>
+                    <input type="text" id="lng" name="lng" value="{{ page_data['map']['lng'] }}">
+                    <br>
+                {% endif %}
+
+                <h4>Page content:</h4>
+
+                {% for content in page_data["content"] %}
+                    {% if content["type"] == "image" %}
+                        <label for="{{ content['name'] }}">Select image for '{{ content['name'] }}':</label>
+                        <select name="{{ content['name'] }}" id="{{ content['name'] }}">
+                            {% for image in image_list %}
+                                {% if image == content["content"] %}
+                                    <option value="{{ image }}" selected="selected">{{ image }}</option>
+                                {% else %}
+                                    <option value="{{ image }}">{{ image }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    {% elif content["type"] == "text" %}
+                        <label for="{{ content['name'] }}">Edit text for '{{ content["name"] }}':</label>
+                        <textarea class="textarea-input" id='{{ content["name"] }}' name="{{ content['name'] }}">
+                            {{ content['content'] }}
+                        </textarea>
+                    {% endif %}
+                    <br>
+                {% endfor %}
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </body>
+
+</html>
+<!--    /templates/admin/edit-page.html    -->

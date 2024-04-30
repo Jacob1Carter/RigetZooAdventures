@@ -1,0 +1,33 @@
+<!--    templates/main/search-results.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+
+        {% include "base/navbar.html" %}
+
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <div class="search-results">
+                {% for animal in animals %}
+                    <a href="/view-animal/{{ animal.id }}">
+                        <h3>{{ animal.species_name }}</h3>
+                        <img src="{{ url_for('static', filename='assets/variable-images/' + animal.image) }}">
+                        <p>{{ animal.info }}</p>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% include "base/footer.html" %}
+
+    </body>
+
+</html>
+<!--    /templates/main/search-results.html    -->

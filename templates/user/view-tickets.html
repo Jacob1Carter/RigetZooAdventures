@@ -1,0 +1,37 @@
+<!--    templates/user/view-tickets.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+
+        {% include "base/navbar.html" %}
+
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <h1>Your tickets</h1>
+            <div class="container-tickets">
+                {% for ticket in user_tickets %}
+                    <div class="ticket">
+                        <p>Type: {% if ticket.ticket_type == "r" %}Regular{% else %}Educational{% endif %}</p>
+                        <p>Date purchased: {{ ticket.date_added }}</p>
+                        <p>Date for: {{ ticket.date_expires }}</p>
+                        <p>Admits: {% for admit in ticket.admit %}{% if loop.index > 1%}, {% endif %}{{ ticket.admit[admit] }} {{ admit }}{% endfor %}</p>
+                        {% if ticket.ticket_type == "r" %}<p>Room(s): {% if ticket.hotel_rooms|length >= 1 %}{% for c in ticket.hotel_rooms %}{% if loop.index >1 %}, {% endif %}{{ c|int + 1 }}{% endfor %}{% else %}None{% endif %}</p>{% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% include "base/footer.html" %}
+
+    </body>
+
+</html>
+
+<!--    /templates/user/view-tickets.html    -->

@@ -1,0 +1,41 @@
+<!--    templates/main/location.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+
+        {% include "base/navbar.html" %}
+
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <h1>{{ page_data["heading"] }}</h1>
+
+            <script src="https://maps.googleapis.com/maps/api/js?v=3.5key={{ page_data['map']['key'] }}&callback=initMap" async defer></script>
+            <script>var position = {"lat": {{ page_data["map"]["lat"] }}, "lng": {{ page_data["map"]["lng"] }}};</script>
+            <script src="static/js/map.js"></script>
+
+            <div id="map" class="map"></div>
+
+            {% for content in page_data["content"] %}
+                {% if content["type"] == "text" %}
+                    <div class="auto-{{ content['name'] }}">
+                        {{ content["content"] }}
+                    </div>
+                {% else %}
+                    <img class="auto-{{ content['name'] }}" src="static/assets/variable-images/{{ content['content'] }}">
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        {% include "base/footer.html" %}
+
+    </body>
+
+</html>
+<!--    /templates/main/location.html    -->

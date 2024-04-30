@@ -1,0 +1,35 @@
+<!--    templates/base/navbar.html    -->
+
+<nav class="navbar">
+    <a href="/" class="col-link">
+        <img src="{{ url_for('static', filename='assets/site-images/logo-icon.png') }}" class="home-icon">
+    </a>
+    <div class="desktop-only">
+        <a href="/location" class="col-link">Location</a>
+        <a href="/about-us" class="col-link">About us</a>
+        <a href="/search-animals" class="col-link">View animals</a>
+        <a href="/tickets" class="col-link">Visit us</a>
+        <a href="/map" class="col-link">View map</a>
+        <a href="/membership" class="col-link">Membership</a>
+        {% if site_vars["is_admin"] %}
+            <a href="/admin" class="col-link admin-link">Admin</a>
+        {% endif %}
+    </div>
+    <div class="mobile-only">
+        <button onclick="toggleNavLinks()" class="col-link">...</button>
+    </div>
+    {% if site_vars["is_session"] %}
+        <a href="/profile" class="col-link">Profile</a>
+    {% else %}
+        <a href="/login" class="col-link">Login</a>
+    {% endif %}
+</nav>
+<div class="nav-hide" id="nav-dropdown">
+    <a href="/location" class="col-link">Location</a>
+    <a href="/about-us" class="col-link">About us</a>
+    <a href="/search-animals" class="col-link">View animals</a>
+    <a href="/tickets" class="col-link">Visit us</a>
+    <a href="/map" class="col-link">View map</a>
+    <a href="/membership" class="col-link">Membership</a>
+</div>
+<!--    /templates/base/navbar.html    -->

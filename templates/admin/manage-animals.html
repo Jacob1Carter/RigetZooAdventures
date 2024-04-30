@@ -1,0 +1,22 @@
+<!--    templates/admin/manage-animals.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/admin-header.html" %}
+
+    <body>
+
+        {% include "base/user-indicator.html" %}
+
+        <div class="container main-content">
+            <div class="options-animals">
+                {% for animal in animals %}
+                    <a href="/admin/edit-animal/{{ animal.id }}">{{ animal.species_name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+    </body>
+
+</html>
+<!--    /templates/admin/manage-animals.html    -->

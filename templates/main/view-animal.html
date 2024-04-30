@@ -1,0 +1,65 @@
+<!--    templates/main/view-animal.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+
+        {% include "base/navbar.html" %}
+
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <h1>{{ animal.species_name }}</h1>
+            <div class="animal-container">
+                <div class="general-info">
+                    <div class="top-row">
+                        <div class="api-info">
+                            {% if api_data["taxonomy"]["family"] is defined %}<p>Family: {{ api_data["taxonomy"]["family"] }}</p>{% endif %}
+                            {% if api_data["taxonomy"]["scientific_name"] is defined %}<p>Scientific name: {{ api_data["taxonomy"]["scientific_name"] }}</p>{% endif %}
+                            {% if api_data["locations"] is defined %}<p>Locations: {% for location in api_data["locations"] %}{% if loop.index > 1%}, {% endif %}{{ location }}{% endfor %}</p>{% endif %}
+                            {% if api_data["characteristics"]["diet"] is defined %}<p>Diet type: {{ api_data["characteristics"]["diet"] }}</p>{% endif %}
+                            {% if api_data["characteristics"]["main_prey"] is defined %}<p>Eats: {{ api_data["characteristics"]["main_prey"] }}</p>{% endif %}
+                            {% if api_data["characteristics"]["predators"] is defined %}<p>Predators: {{ api_data["characteristics"]["predators"] }}</p>{% endif %}
+                            {% if api_data["characteristics"]["estimated_population_size"] is defined %}<p>Population: {{ api_data["characteristics"]["estimated_population_size"] }}</p>{% endif %}
+                            {% if api_data["characteristics"]["biggest_threat"] is defined %}<p>Biggest threat: {{ api_data["characteristics"]["biggest_threat"] }}</p>{% endif %}
+                            {% if api_data["characteristics"]["habitat"] is defined %}<P>Habitat: {{ api_data["characteristics"]["habitat"] }}</P>{% endif %}
+                            {% if api_data["characteristics"]["weight"] is defined %}<p>Weight: {{ api_data["characteristics"]["weight"] }}</p>{% endif %}
+                            {% if api_data["characteristics"]["height"] is defined %}<P>Height: {{ api_data["characteristics"]["height"] }}</P>{% endif %}
+                            {% if api_data["characteristics"]["lifespan"] is defined %}<p>Lifespan: {{ api_data["characteristics"]["lifespan"] }}</p>{% endif %}
+                            {% if api_data["characteristics"]["top_speed"] is defined %}<p>Top speed: {{ api_data["characteristics"]["top_speed"] }}</p>{% endif %}
+                        </div>
+                        <img src="{{ url_for('static', filename='assets/variable-images/' + animal.image) }}">
+                    </div>
+                    <div class="bottom-row">
+                        <div class="description">
+                            {{ animal.info }}
+                        </div>
+                    </div>
+                </div>
+                <div class="individual-info">
+                    <h2>At RZA:</h2>
+                    {% for i in animal.individual_details %}
+                        <div class="individual-animal">
+                            <h5>{{ i }}</h5>
+                            <img src="{{ url_for('static', filename='assets/variable-images/' + animal.individual_details[i]['image']) }}">
+                            {% if animal.individual_details[i]["species"] != animal.species_name %}<p>Species: {{ animal.individual_details[i]["species"] }}{% endif %}</p>
+                            <p>Gender: {{ animal.individual_details[i]["gender"] }}</p>
+                            <p>Age: {{ animal.individual_details[i]["age"] }}</p>
+                            <p>{{ animal.individual_details[i]["description"] }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        {% include "base/footer.html" %}
+
+    </body>
+
+</html>
+<!--    /templates/main/view-animal.html    -->

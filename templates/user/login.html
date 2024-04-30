@@ -1,0 +1,30 @@
+<!--    templates/user/login.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <form class="login-register-form" action="/login" method="post">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" pattern="[^@]+@[^@]+\.+[^@]+">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+
+                <button type="submit">Submit</button>
+
+                <a href="/register">Register</a>
+            </form>
+
+        </div>
+    </body>
+
+</html>
+<!--    /templates/user/login.html    -->

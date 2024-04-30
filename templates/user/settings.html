@@ -1,0 +1,25 @@
+<!--    templates/user/settings.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+
+        {% include "base/navbar.html" %}
+
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <h3>Under development</h3>
+        </div>
+
+        {% include "base/footer.html" %}
+
+    </body>
+
+</html>
+<!--    /templates/user/settings.html    -->

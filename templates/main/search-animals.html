@@ -1,0 +1,38 @@
+<!--    templates/main/search-animals.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+
+        {% include "base/navbar.html" %}
+
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <form class="search-form" method="POST" action="/search-animals">
+                <input type="text" name="search" id="search" placeholder="Search animals..." required>
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="search-results">
+                {% for animal in animals %}
+                    <a class="animal-link" href="/view-animal/{{ animal.id }}">
+                        <h3>{{ animal.species_name }}</h3>
+                        <img src="{{ url_for('static', filename='assets/variable-images/' + animal.image) }}">
+                        <p>{{ animal.info }}</p>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% include "base/footer.html" %}
+
+    </body>
+
+</html>
+<!--    /templates/main/search-animals.html    -->

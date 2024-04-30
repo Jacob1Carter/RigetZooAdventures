@@ -1,0 +1,29 @@
+<!--    templates/admin/view-stats.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/admin-header.html" %}
+
+    <body>
+
+        {% include "base/user-indicator.html" %}
+
+        <div class="container main-content">
+            <h1>Stats</h1>
+            <p>Under development</p>
+            <h3>Feedback</h3>
+            <div class="feedback-list">
+                {% for feedback in all_feedback %}
+                    <div class="user-feedback-tile">
+                        <h4>{{ feedback.question }}</h4>
+                        <p>{{ feedback.answer }}</p>
+                        <p>Time: {{ feedback.date_added }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </body>
+
+</html>
+<!--    /templates/admin/view-stats.html    -->

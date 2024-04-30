@@ -1,0 +1,35 @@
+<!--    templates/user/order-room.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+
+        {% include "base/navbar.html" %}
+
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <form class="room-form" method="POST" action="/book-room">
+                {% for room in rooms %}
+                <label class="room-label" for="{{ loop.index }}">Room {{ loop.index }}
+                    <input class="btn" type="checkbox" name="{{ loop.index }}" id="{{ loop.index }}" value="{{ loop.index }}" {% if room["Availability"] == "unavailable" %}disabled{% endif %}>
+                    <span class="checkmark room-{{ room['Availability'] }}">Room {{ loop.index }}</span>
+                </label>
+                {% endfor %}
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        {% include "base/footer.html" %}
+
+    </body>
+
+</html>
+
+<!--    /templates/user/order-room.html    -->

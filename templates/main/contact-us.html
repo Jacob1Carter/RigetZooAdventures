@@ -1,0 +1,45 @@
+<!--    templates/main/contact-us.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+
+        {% include "base/navbar.html" %}
+
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <h1>Contact us</h1>
+            <div class="contact-container">
+                <form class="anonymous" method="POST" action="/contact-us?type=a">
+                    <h3>Give anonymous feedback</h3>
+
+                    <textarea class="textarea-input" id="anonymous-input" name="anonymous-input"></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+                <form class="direct" method="POST" action="/contact-us?type=d">
+                    <h3>Contact us directly</h3>
+
+                    <textarea class="textarea-input" id="direct-input" name="direct-input"></textarea>
+
+                    <label for="email">Enter return email</label>
+                    <input type="email" id="email" name="email"{% if not site_vars["is_session"] %} pattern="[^@]+@[^@]+\.+[^@]+" required{% endif %}>
+                    <small>{% if site_vars["is_session"] %}If left empty, the email address linked to your account will be used{% endif %}</small>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        {% include "base/footer.html" %}
+
+    </body>
+
+</html>
+<!--    /templates/main/contact-us.html    -->

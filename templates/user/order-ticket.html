@@ -1,0 +1,59 @@
+<!--    templates/user/order-ticket.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+
+        {% include "base/navbar.html" %}
+
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <form method="POST" action="/tickets?type=r">
+                <h3>Regular</h3>
+
+                <label for="adult">Adult: </label>
+                <input type="number" value="0" id="adult" min="0" name="adult" required>{% if site_vars["is_member"] %}<del>£5.00</del>£{{ (5*0.8)|round(2) }}{% else %}£5.00{% endif %}
+
+                <label for="child">Child: </label>
+                <input type="number" value="0" id="child" min="0" name="child" required>{% if site_vars["is_member"] %}<del>£2.00</del>£{{ (2*0.8)|round(2) }}{% else %}£2.00{% endif %}
+
+                <label for="student">Student: </label>
+                <input type="number" value="0" id="student" min="0" name="student" required>{% if site_vars["is_member"] %}<del>£3.50</del>£{{ (3.5*0.8)|round(2) }}{% else %}£3.50{% endif %}
+
+                <label for="date_r">Date: </label>
+                <input type="date" id="date_r" name="date_r" min="{{ date_today }}" pattern="\d{4}-\d{2}-\d{2}" required>
+
+                <br><br>
+                <button type="submit" value="/book-room" name="redirect">Book a room</button>
+                <button type="submit" value="/cart" name="redirect">Continue to checkout</button>
+            </form>
+
+            <form method="POST" action="/tickets?type=e">
+                <h3>Education</h3>
+
+                <label for="supervisors">Supervisors: </label>
+                <input type="number" value="0" id="supervisors" min="0" name="supervisors" required>
+
+                <label for="students">Students: </label>
+                <input type="number" value="0" id="students" min="0" name="students" required>
+
+                <label for="date_e">Date: </label>
+                <input type="date" id="date_e" name="date_e" min="{{ date_today }}" required>
+
+                <br><br>
+                <button type="submit" value="/cart" name="redirect">Continue to checkout</button>
+            </form>
+        </div>
+
+        {% include "base/footer.html" %}
+
+    </body>
+
+</html>
+<!--    /templates/user/order-ticket.html    -->

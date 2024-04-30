@@ -1,0 +1,93 @@
+{
+  "users": [
+    {
+      "email": "superuser@mail.com",
+      "password": "superpass",
+      "password_md5": "",
+      "is_member": "True",
+      "is_admin": "True"
+    },
+    {
+      "email": "RenaBisset@mail.com",
+      "password": "examplepass1",
+      "password_md5": "",
+      "is_member": "True",
+      "is_admin": "False"
+    },
+    {
+      "email": "reedheath@mail.com",
+      "password": "examplepass2",
+      "password_md5": "",
+      "is_member": "False",
+      "is_admin": "False"
+    },
+    {
+      "email": "danielalorri@mail.com",
+      "password": "examplepass3",
+      "password_md5": "",
+      "is_member": "False",
+      "is_admin": "False"
+    },
+    {
+      "email": "barneyberinger@mail.com",
+      "password": "examplepass4",
+      "password_md5": "",
+      "is_member": "False",
+      "is_admin": "False"
+    }
+  ],
+  "animals": [
+    {
+      "species_name": "Elephant",
+      "api_name": "elephant",
+      "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "individual_details": {
+        "example-name1": {
+          "species": "Elephant",
+          "gender":  "male",
+          "birth_date": "20160523000000",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "image": "placeholder.png"
+        },
+        "example-name2": {
+          "species": "elephant",
+          "gender":  "female",
+          "birth_date": "20141202000000",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "image": "placeholder.png"
+        }
+      },
+      "image": "placeholder.png"
+    },
+    {
+      "species_name": "Tiger",
+      "api_name": "tiger",
+      "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "individual_details": {
+        "example-name": {
+          "species": "Tiger",
+          "gender":  "female",
+          "birth_date": "20160523000000",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "image": "placeholder.png"
+        }
+      },
+      "image": "placeholder.png"
+    },
+    {
+      "species_name": "Giraffe",
+      "api_name": "giraffe",
+      "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "individual_details": {
+        "example-name": {
+          "species": "Giraffe",
+          "gender":  "male",
+          "birth_date": "20160523000000",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "image": "placeholder.png"
+        }
+      },
+      "image": "placeholder.png"
+    }
+  ]
+}

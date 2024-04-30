@@ -1,0 +1,95 @@
+<!--    templates/admin/edit-animal.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/admin-header.html" %}
+
+    <body>
+
+        {% include "base/user-indicator.html" %}
+
+        <div class="container main-content">
+            <h1>Edit animal: {{ animal.species_name }}</h1>
+            <form class="page-form" action="/admin/edit-animal/{{ animal.id }}" method="POST">
+                <label for="species_name">Species name:</label>
+                <input type="text" id="species_name" name="species_name" value="{{ animal.species_name }}">
+
+                <br><br>
+
+                <label for="api_name">API name:</label>
+                <input type="text" id="api_name" name="api_name" value="{{ animal.api_name }}">
+
+                <br><br>
+
+                <label for="info">Info:</label>
+                <textarea class="textarea-input" id='info' name="info">
+                    {{ animal.info }}
+                </textarea>
+
+                <br><br>
+
+                <label for="image">Image:</label>
+                <select name="image" id="image">
+                    {% for image in image_list %}
+                        {% if image == animal.individual_details['image'] %}
+                            <option value="{{ image }}" selected="selected">{{ image }}</option>
+                        {% else %}
+                            <option value="{{ image }}">{{ image }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+
+                <h4>Individual info:</h4>
+
+                {% for individual in animal.individual_details %}
+                    <div class="individual-info">
+                        <label for="{{ individual }}name">Name:</label>
+                        <input type="text" id="{{ individual }}name" name="{{ individual }}name" value="{{ individual }}">
+
+                        <br><br>
+
+                        <label for="{{ individual }}species">Species:</label>
+                        <input type="text" id="{{ individual }}species" name="{{ individual }}species" value="{{ animal.individual_details[individual]['species'] }}">
+
+                        <br><br>
+
+                        <label for="{{ individual }}gender">Gender:</label>
+                        <input type="text" id="{{ individual }}gender" name="{{ individual }}gender" value="{{ animal.individual_details[individual]['gender'] }}">
+
+                        <br><br>
+
+                        <label for="{{ individual }}birth_date">Birth Date:</label>
+                        <input type="date" id="{{ individual }}birth_Date" name="{{ individual }}birth_date" value="{{ animal.individual_details[individual]['birth_date'] }}">
+
+                        <br><br>
+
+                        <label for="{{ individual }}description">Description::</label>
+                        <textarea class="textarea-input" id='{{ individual }}description' name="{{ individual }}description">
+                            {{ animal.individual_details[individual]['description'] }}
+                        </textarea>
+
+                        <br><br>
+
+                        <label for="{{ individual }}image">Image:</label>
+                        <select name="{{ individual }}image" id="{{ individual }}image">
+                            {% for image in image_list %}
+                                {% if image == animal.individual_details[individual]['image'] %}
+                                    <option value="{{ image }}" selected="selected">{{ image }}</option>
+                                {% else %}
+                                    <option value="{{ image }}">{{ image }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+
+                        <br>
+                    </div>
+                {% endfor %}
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </body>
+
+</html>
+<!--    /templates/admin/edit-animal.html    -->

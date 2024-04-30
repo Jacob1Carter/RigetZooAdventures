@@ -1,0 +1,22 @@
+<!--    templates/admin/manage-pages.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/admin-header.html" %}
+
+    <body>
+
+        {% include "base/user-indicator.html" %}
+
+        <div class="container main-content">
+            <div class="options-flex">
+                {% for page in pages %}
+                    <a href="/admin/edit-page/{{ page }}">{{ page }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+    </body>
+
+</html>
+<!--    /templates/admin/manage-pages.html    -->

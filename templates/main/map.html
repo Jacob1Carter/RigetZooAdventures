@@ -1,0 +1,35 @@
+<!--    templates/main/map.html    -->
+
+<html lang="en-gb">
+
+    {% include "base/header.html" %}
+
+    <body>
+
+        {% include "base/navbar.html" %}
+
+        <div class="container main-content">
+
+            {% if site_vars["alerts"]|length > 0 %}
+                {% include "base/alerts.html" %}
+            {% endif %}
+
+            <h1>{{ page_data["heading"] }}</h1>
+
+            {% for content in page_data["content"] %}
+                {% if content["type"] == "text" %}
+                    <div class="auto-{{ content['name'] }}">
+                        {{ content["content"] }}
+                    </div>
+                {% else %}
+                    <img class="auto-{{ content['name'] }}" src="static/assets/variable-images/{{ content['content'] }}">
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        {% include "base/footer.html" %}
+
+    </body>
+
+</html>
+<!--    /templates/main/map.html    -->
